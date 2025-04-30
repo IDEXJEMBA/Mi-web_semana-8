@@ -9,6 +9,7 @@
       padding: 20px;
       background-color: #f4f4f4;
       text-align: center;
+      transition: background-color 0.5s ease;
     }
 
     #content {
@@ -38,6 +39,7 @@
       background-color: #007BFF;
       color: white;
       border-radius: 5px;
+      margin: 10px;
     }
 
     button:hover {
@@ -48,7 +50,9 @@
 <body>
 
   <h1>Generador de Imágenes y Textos</h1>
-  <button onclick="generarContenido()">Generar</button>
+
+  <button onclick="generarContenido()">Generar Contenido</button>
+  <button onclick="cambiarColorFondo()">Cambiar Color de Fondo</button>
 
   <div id="content"></div>
 
@@ -69,6 +73,10 @@
       "https://source.unsplash.com/200x150/?forest"
     ];
 
+    const coloresFondo = [
+      "#f4f4f4", "#dff0d8", "#d9edf7", "#fcf8e3", "#f2dede", "#ffffff", "#e0f7fa", "#ffe0b2"
+    ];
+
     function generarContenido() {
       const index = Math.floor(Math.random() * textos.length);
       const contenedor = document.getElementById("content");
@@ -85,6 +93,11 @@
       card.appendChild(img);
       card.appendChild(texto);
       contenedor.appendChild(card);
+    }
+
+    function cambiarColorFondo() {
+      const colorAleatorio = coloresFondo[Math.floor(Math.random() * coloresFondo.length)];
+      document.body.style.backgroundColor = colorAleatorio;
     }
   </script>
 
