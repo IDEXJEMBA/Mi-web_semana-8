@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generador de Imágenes y Textos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+
+    #content {
+      margin-top: 20px;
+    }
+
+    .card {
+      display: inline-block;
+      background-color: white;
+      padding: 15px;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 200px;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      background-color: #007BFF;
+      color: white;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Generador de Imágenes y Textos</h1>
+  <button onclick="generarContenido()">Generar</button>
+
+  <div id="content"></div>
+
+  <script>
+    const textos = [
+      "Un atardecer en la montaña",
+      "Una aventura en el océano",
+      "Paisaje nevado en invierno",
+      "Viaje por el desierto",
+      "Un bosque encantado"
+    ];
+
+    const imagenes = [
+      "https://source.unsplash.com/200x150/?mountain",
+      "https://source.unsplash.com/200x150/?ocean",
+      "https://source.unsplash.com/200x150/?snow",
+      "https://source.unsplash.com/200x150/?desert",
+      "https://source.unsplash.com/200x150/?forest"
+    ];
+
+    function generarContenido() {
+      const index = Math.floor(Math.random() * textos.length);
+      const contenedor = document.getElementById("content");
+
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const img = document.createElement("img");
+      img.src = imagenes[index];
+
+      const texto = document.createElement("p");
+      texto.textContent = textos[index];
+
+      card.appendChild(img);
+      card.appendChild(texto);
+      contenedor.appendChild(card);
+    }
+  </script>
+
+</body>
+</html>
